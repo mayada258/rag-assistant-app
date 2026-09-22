@@ -27,9 +27,14 @@ def build_prompt(question: str, chunks: list[dict]) -> str:
     return PROMPT_TEMPLATE.format(context=context, question=question)
 
 
-def generate_answer(question: str, chunks: list[dict]) -> str:
+def generate_answer(
+    question: str, chunks: list[dict], detected_objects: list[str] | None = None
+) -> str:
     if not chunks:
         return "I don't have enough information in the documents to answer that."
+
+    if detected_objects:
+        question = f"[Image shows: {', '.join(detected_objects)}] {question}"
 
     prompt = build_prompt(question, chunks)
 
