@@ -1,0 +1,14 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+*.log
+.ipynb_checkpoints/
+
+# raw document corpus (large) - see README for how to obtain it
+backend/data/raw_corpus/
+data/raw_corpus/
+
+# vector store binary files (large) - regenerate from the notebook
+backend/data/vector_store/*.bin
+backend/data/vector_store/chroma.sqlite3
