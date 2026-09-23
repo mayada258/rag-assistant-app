@@ -13,7 +13,7 @@ def ask_question(question: str) -> dict:
     response = requests.post(
         f"{API_BASE_URL}/query",
         json={"question": question},
-        timeout=180,
+        timeout=120,
     )
     response.raise_for_status()
     return response.json()
