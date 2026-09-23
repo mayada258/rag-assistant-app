@@ -7,11 +7,8 @@ Builds a grounded prompt from retrieved chunks and calls the local Ollama LLM.
 import ollama
 
 from app.core.config import settings
-
-PROMPT_TEMPLATE = """You are a helpful assistant. Answer the question using ONLY the
-context below. If the answer is not contained in the context, say you don't know.
-Cite the source of each fact you use in square brackets, e.g. [source: filename.pdf].
-
+PROMPT_TEMPLATE = """You are a helpful assistant. Use the context below to answer
+the question as best you can, even if the context only partially covers it.
 Context:
 {context}
 

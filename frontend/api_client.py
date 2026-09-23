@@ -13,7 +13,7 @@ def ask_question(question: str) -> dict:
     response = requests.post(
         f"{API_BASE_URL}/query",
         json={"question": question},
-        timeout=60,
+        timeout=180,
     )
     response.raise_for_status()
     return response.json()
@@ -30,7 +30,7 @@ def ask_question_with_image(question: str, image_file) -> dict:
         f"{API_BASE_URL}/query-with-image",
         data=data,
         files=files,
-        timeout=60,
+        timeout=120,
     )
     response.raise_for_status()
     return response.json()
